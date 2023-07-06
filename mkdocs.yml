@@ -1,5 +1,9 @@
 # Project information
+
 site_name: Linux Start From a NewBie
+site_url: https://linux.bowling233.top/
+repo_url: https://github.com/Tiandians/LinuxNote/
+repo_name: LinuxNote
 
 # Material
 markdown_extensions:
@@ -74,4 +78,6 @@ nav:
     - 1.install/index.md
     - 1.install/1.install.wsl.md
     - 1.install/1.install.other.md
+    - 1.install/1.install.cloud.md
   - 2.cli.md
+  - 10.basic_of_clusters.md

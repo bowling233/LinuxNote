@@ -13,7 +13,13 @@
 ## 目录
 
 - [0. 写在前面](0.before.md)
-- [1. 安装 Linux 系统](1.install.md)
-    - [1.1 安装 WSL](1.install.wsl.md)
-    - [1.2 安装 Linux 发行版](1.install.other.md)
-- [2. 初始命令行界面](2.cli.md)
+- [1. 安装 Linux 系统](1.install/index.md)
+  - [1.1 安装 WSL](1.install/1.install.wsl.md)
+  - [1.2 安装 Linux 发行版](1.install/1.install.other.md)
+- [2. 认识命令行界面](2.cli.md)
+
+## 服务器与集群运维基础
+
+- [服务器与集群运维基础概念](10.basic_of_clusters.md)
+- [服务器与集群运维工具](11.tools_for_clusters.md)
+
