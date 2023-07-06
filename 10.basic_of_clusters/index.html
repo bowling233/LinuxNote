@@ -430,7 +430,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
+    集群运维知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     扩展：服务器物理机的运维
   </a>
   
@@ -438,14 +445,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     系统启动的各种方式
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     系统启动过程
   </a>
   
@@ -471,15 +478,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#handbook" class="md-nav__link">
-    Handbook
+  <a href="#more-information" class="md-nav__link">
+    More Information
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#-lkddb-linux-kernel-driver-database-what-linux-drivers-are-for-me" class="md-nav__link">
-    - LKDDb: Linux Kernel Driver DataBase | what Linux drivers are for me?
+  <a href="#handbook" class="md-nav__link">
+    Handbook
   </a>
   
 </li>
@@ -539,7 +546,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
+    集群运维知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     扩展：服务器物理机的运维
   </a>
   
@@ -547,14 +561,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     系统启动的各种方式
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     系统启动过程
   </a>
   
@@ -580,15 +594,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#handbook" class="md-nav__link">
-    Handbook
+  <a href="#more-information" class="md-nav__link">
+    More Information
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#-lkddb-linux-kernel-driver-database-what-linux-drivers-are-for-me" class="md-nav__link">
-    - LKDDb: Linux Kernel Driver DataBase | what Linux drivers are for me?
+  <a href="#handbook" class="md-nav__link">
+    Handbook
   </a>
   
 </li>
@@ -649,14 +663,182 @@
 <li><strong>安全组或防火墙</strong>：用于控制服务器入站和出站流量。</li>
 </ul>
 <h3 id="_3">网络基础<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>在此之前你应该已经对 Internet 网络结构和分层协议有所了解。对于云服务器运维，我们主要关注两个网络层次：</p>
+<p>在此之前你应该已经对 Internet 网络结构和协议分层有所耳闻。对于服务器运维，我们主要关注两个网络层次：</p>
 <ul>
 <li>应用层：HTTP、SMTP 等应用类协议。</li>
 <li>网络层（特别是数据平面）：IP 协议。</li>
 </ul>
 <p>其他分层如数据链路层、传输层等由云服务提供商为我们处理，作为使用者的我们不需要关心。</p>
-<p>应用层协议众多，请根据你的需求学习不同的协议，我们会在后面的服务器部署与架设章节中展开其中的一些。而 IP 协议是互联网的基础，我们需要对它有更深入的了解。</p>
-<h2 id="_4">扩展：服务器物理机的运维<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>应用层协议众多，请根据你的需求学习不同的协议，我们会在后面的服务器部署与架设等章节中展开其中的一些。而 IP 协议是互联网的基础，我们需要对它有更深入的了解。</p>
+<h4 id="_4">网络层<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>该部分内容取自《计算机网络：自顶向下方法》第 4 章。在前面的章节有一些预备知识，请确保你了解以下术语的含义：</p>
+<ul>
+<li>端系统（end system）</li>
+<li>端口（port）</li>
+<li>分组（packet）</li>
+<li>网络层数据报（network-layer datagram）</li>
+<li>链路层帧（link-layer frame）</li>
+</ul>
+<h5 id="_5">网络层都做些什么？<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<p>每台主机和路由器中都有一个网络层部分。网络层具有两大重要功能：</p>
+<ul>
+<li>转发（forwarding）：由数据平面实现，路由器将分组从一个输入链路移动到适当的输出链路。</li>
+<li>路由选择（routing）：由控制平面实现，路由器使用<strong>路由选择算法</strong>决定将分组在端系统之间流动的路径。</li>
+</ul>
+<p>每台路由器具有一个转发表。在我们使用的模型中，转发表由一个远程控制器进行计算和分发，称为软件定义网络（Software Defined Network，SDN）。</p>
+<h5 id="_6">路由器是如何工作的？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<p>一台路由器有四个组件：</p>
+<ul>
+<li>输入端口：接收分组、查询转发表。</li>
+<li>交换结构：连接输入端口和输出端口。</li>
+<li>输出端口：存储和传输分组。</li>
+<li>路由选择处理器：与远程控制器通信、接收转发表、在输入端口安装转发表项、执行网络管理功能。</li>
+</ul>
+<p>前面的三个组件由硬件实现，而路由选择处理器由软件实现。</p>
+<p>两种转发模式：</p>
+<ul>
+<li>基于目的地转发</li>
+<li>通用转发：有更多因素影响转发决策。</li>
+</ul>
+<p>输入端口处理：</p>
+<ul>
+<li>转发表从路由选择处理器通过独立总线复制到输入端口的线路卡。</li>
+<li>输入端口处理流程：线路端接-数据链路处理（协议，拆封）-查找、转发、排队-交换结构</li>
+<li>除了查找以外，输入端口还需要执行其他功能，如检查、重写分组中的某些内容，更新网络计数器等。</li>
+</ul>
+<!-- prettier-ignore-start -->
+<details class="question">
+<summary>转发表太大了怎么办？</summary>
+<p>对于 32 位 IP 地址，如果路由表中为每个 IP 地址设置一个表项，则路由表有 40 多亿个项。事实上路由器使用<strong>最长前缀匹配</strong>规则，转发表中保存<strong>前缀匹配</strong>。</p>
+<ul>
+<li>最长前缀匹配指的是：如果路由表中有多个匹配项，那么选择最长的前缀匹配项。</li>
+<li>这要求硬件实现：对大型转发表的超过简单线性搜索的查找算法、对内存的高速访问。有兴趣可以查找相关资料。</li>
+</ul>
+</details>
+<!-- prettier-ignore-end -->
+
+<p>交换结构有多种实现，不作具体介绍：</p>
+<ul>
+<li>经内存交换：受内存访问速度的限制。在现代路由器中，将分组存进内存位置也常常由输入端口的线路卡完成，这更像是一个共享内存的多处理器。</li>
+<li>经总线交换：接收分组-打标签-上总线-匹配的输出端口接收-去除标签。所有端口都会收到分组，但只有匹配的端口会接收到分组。总线上一次只能有一个分组，速度受总线带宽限制。</li>
+<li>经互联网络交换：使用更加复杂的内部交换结构，如纵横式交换网络、多级交换结构等。它们通常是<strong>非阻塞</strong>的，即只要没有其他分组占用该输出端口，就可以立即将分组从输入端口转发到输出端口。</li>
+</ul>
+<p>输出端口处理：</p>
+<ul>
+<li>输出端口处理流程：排队-数据链路处理（协议，封装）-线路端接</li>
+<li>输入排队：线路前部阻塞（Head-Of-Line，HOL）阻塞。如果一个分组在一个输出端口排队，那么该输出端口的所有分组都会被阻塞，即使其中一些分组可以被转发到其他输出端口。</li>
+<li>输出排队：要么丢弃尾部到达分组（drop-tail），要么删除一些已排队的分组（Active Queue Management，AQM）。</li>
+</ul>
+<p>分组调度：决定排队的分组如何经输出链路传输。</p>
+<ul>
+<li>先来先服务（FCFS，又称为 FIFO）</li>
+<li>优先权排队（priority queuing）：分组被分成几种优先权类，选择分组传输时优先从高优先权类中选择。比如，实时通话的优先权可能高于邮件服务。</li>
+<li>循环排队：字面意思，循环调度器轮流服务多个类。</li>
+<li>加权公平排队（Weighted Fair Queuing, WFQ）：保证即使在所有类的都有排队时，每个类仍然保证分配到对应加权的带宽部分。</li>
+</ul>
+<h5 id="ip">IP 协议是如何工作的？<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h5>
+<ul>
+<li>IPv4 数据报格式见书本。</li>
+</ul>
+<p>数据报分片：</p>
+<ul>
+<li>一个链路层帧能承载的最大数据量叫做<strong>最大传送单元（Maximum Transmission Unit，MTU）</strong>，它严格限制 IP 数据报的长度。如果一个数据报的长度大于 MTU，那么就需要分片。</li>
+<li>IPv4 的设计者认为，在路由器中组装数据报会给协议带来很大的复杂性且影响路由器性能，因此<strong>分片组装在端系统中进行</strong>。IPv4 报文中的标识、标志和片偏移字段用于分片和组装。<ul>
+<li>同一个数据报的所有分片都有相同的标识字段值。</li>
+<li>最后一个片的标志比特为 0，其他分片的标志比特为 1。</li>
+<li>片偏移字段可以让目的主机确定是否丢失了某一片。</li>
+</ul>
+</li>
+</ul>
+<p>IPv4 编址：</p>
+<ul>
+<li>IP 地址与<strong>接口</strong>相关联，而不是与主机或路由器相关联。</li>
+<li>IP 地址长度为 32 比特（4 字节），共有约 40 亿个可能的 IP 地址。<code>193.32.216.9</code> 这样的记法称为<strong>点分十进制记法</strong>（dotted-decimal notation），每个字节用十进制书写，各字节间用点隔开。</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">重点：子网的概念</p>
+<p>互联几个主机接口与一个路由器接口的网络形成子网（subnet）。这些主机接口和路由器接口之间由<strong>并不包含路由器的网络</strong>连接起来，比如一个以太网交换机。子网的定义并不局限于多台主机到一个路由器接口，路由器接口之间也构成子网。</p>
+<ul>
+<li>IP 编址为该<strong>子网</strong>分配一个形如 <code>223.1.1.0/24</code> 的地址，其中 <code>/24</code> 是<strong>子网掩码</strong>，表明最左侧 24 比特定义了子网地址。任何其他连接到 <code>223.1.1.0/24</code> 网络的主机地址都应当有 <code>223.1.1.xxx</code> 的形式。</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>因特网的地址分配策略：无类别域间路由选择（Classless Interdomain Routing，CIDR）。</p>
+<ul>
+<li>IP 地址划分为两部分，也使用点分十进制格式，<code>a.b.c.d/x</code>。</li>
+<li>地址的剩余 <span class="arithmatex">\(32-x\)</span> 比特用于区分该组织内部的设备，其中所有设备具有相同的网络前缀。只有当组织内部的路由器转发分组时才考虑这些比特。这些较低比特可能用于另外的子网结构。</li>
+</ul>
+<!-- prettier-ignore-start -->
+<details class="example">
+<summary>CIDR 寻址的例子</summary>
+<p>一个 ISP 拥有地址块 <code>200.23.16.0/20</code>，它向外界通告：向我发送以 <code>200.23.16.0/20</code> 开始的任何东西。这个 ISP 将 <code>200.23.16.0/23</code>、<code>200.23.18.0/23</code> 等几个组织连接到互联网。</p>
+<ul>
+<li>这样使用单个网络前缀通告多个网络的能力称为<strong>地址聚合</strong>（address aggregation）或<strong>路由聚合</strong>（routing aggregation）或<strong>路由摘要</strong>（route summarization）。</li>
+</ul>
+<p>这个 ISP 又拿到了一个辅助 ISP，它具有 <code>199.31.0.0/16</code> 的地址块。现在将组织 <code>200.23.16.0/23</code> 通过该辅助 ISP 连接到互联网。这个 ISP 应当向外界通告：向我发送以 <code>199.31.0.0/16</code> 或 <code>200.23.16.0/23</code> 开始的任何东西。</p>
+<ul>
+<li>上面这个例子说明：路由选择时将使用<strong>最长前缀匹配</strong>。</li>
+</ul>
+</details>
+<!-- prettier-ignore-end -->
+
+<p>在 CIDR 之前，IP 地址的网络部分被限制为 8、16 或 24 比特，称为<strong>分类编制</strong>（classful addressing）方案。这些子网分别称为 A、B 和 C 类网络。分类编址方案的问题在于，它们将地址空间划分为固定大小的块，这些块可能过大或过小。</p>
+<p>一个特别的地址：<code>255.255.255.255</code> 广播地址。当一台主机发出目的地为广播地址的数据报时，报文交付给同网络中所有主机。</p>
+<p>IP 地址的分配：</p>
+<ul>
+<li>地址块的分配：网络管理员向 ISP 联系，获取 ISP 提供的地址块。ISP 则从一个全球性的权威机构因特网名字和地址分配机构（Internet Corporation for Assigned Names and Numbers，ICANN）获取地址块。</li>
+<li>主机地址：动态主机配置协议（Dynamic Host Configuration Protocol，DHCP）。</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">重点：DHCP 协议</p>
+<p>DHCP 协议是一种即插即用协议（plug-and-play protocol）或零协议（zeroconf），它允许主机自动获取 IP 地址和其他配置参数。</p>
+<p>DHCP 协议是一种客户-服务器协议。通常情况下，客户是新到达的主机，每个子网具有一台 DHCP 服务器。如果没有，就需要 DHCP 中继代理（DHCP relay agent），通常是一个<strong>路由器</strong>，它知道该网络的 DHCP 服务器地址，提供中继代理服务。</p>
+<p>DHCP 协议的工作原理如下：</p>
+<ul>
+<li>DHCP 服务器发现：新到达的主机在 UDP 分组中向端口 67 广播一个 DHCP 发现报文（DHCP discover message），目的地址为广播地址 <code>255.255.255.255</code>，源地址为 <code>0.0.0.0</code>（代表本主机）。</li>
+<li>DHCP 服务器提供：DHCP 服务器收到 DHCP 发现报文后，用广播的 DHCP 提供报文（DHCP offer message）作为响应。<ul>
+<li>提供报文包含：发现报文的 ID、向客户推荐的 IP 地址、网络掩码、IP 地址租期（address lease time）。</li>
+<li>如果子网中存在几个 DHCP 服务器，该客户会选择其中一个。</li>
+</ul>
+</li>
+<li>DHCP 请求：客户向选中的服务器发送 DHCP 请求报文（DHCP request message），回显配置参数。</li>
+<li>DHCP ACK：服务器响应，证实要求的参数。</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">重点：网络地址转换 NAT</p>
+<p>一个 <strong>NAT 使能路由器</strong>（就是具有NAT功能的路由器，这个翻译好怪）对外的行为像是一个具有单个 IP 地址的单一设备。它对外隐藏了内部网络的细节。路由器上有一张 NAT 转换表，包含端口号和 IP 地址。</p>
+<p>NAT 网络内的编址通常使用地址空间 <code>10.0.0.0/8</code>，这是 RFC 1918 中保留的三部分 IP 地址空间之一。这些地址用于专用网络（private network）。</p>
+<p>NAT 使能路由器的工作原理如下：</p>
+<ul>
+<li>NAT 网络内的主机 <code>10.0.0.1</code> 请求某 Web 服务器，并为其分配 <code>3345</code> 端口。数据报发送到 LAN 中。</li>
+<li>NAT 路由器接收到数据报，生成一个新的端口号 <code>5001</code>，并将源 IP 和源端口号替换成其广域网一侧接口的 IP 地址 <code>139.76.29.7:5001</code>。NAT 路由器在 NAT 转换表中添加一个表项，该报文被送往广域网。</li>
+<li>Web 服务器接收到报文，但他不知道报文被修改。响应报文按 <code>139.76.29.7:5001</code> 到达 NAT 路由器。</li>
+<li>NAT 路由器按转换表重写响应报文的目的 IP 地址和端口号，并转发到专用网络。</li>
+</ul>
+<p>对 NAT 的批评如下：</p>
+<ul>
+<li>端口号是用于进程寻址的，而不是用于主机寻址的。对该问题的解决方案包括 NAT 穿越和通用即插即用（Universal Plug and Play，UPnP）。</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>IPv6 协议：扩大了地址空间，并强化了其他方面。</p>
+<ul>
+<li>报文首部为定长的 40 字节：使路由器更快处理报文。</li>
+<li>IPv6 不允许中间路由器进行分片与重新组装，只能在源和目的地间进行。如果数据报太大，路由器丢弃数据报并返回“分组太大”的 ICMP 错误报文。这同样加快了网络的转发速度。</li>
+<li>IPv6 去除了首部检验和，而在 IPv4 中每台路由器都需要重新计算首部检验和。</li>
+</ul>
+<h5 id="_7">其他转发类型<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<p>关于通用转发与 SDN 的内容，暂时跳过。</p>
+<h2 id="_8">集群运维知识<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_9">扩展：服务器物理机的运维<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">参考资料</p>
@@ -676,19 +858,29 @@
 <li>BIOS 使用磁盘起始处的一些扇区来存储启动程序，而 UEFI 使用磁盘上的一个特殊分区来存储启动程序。UEFI 具有更多的功能，支持更大的磁盘空间等，正在逐渐取代 BIOS。</li>
 <li>GRUB（GRand Unified Bootloader）是一个多重启动管理器，用于在多个操作系统共存时选择引导哪个操作系统。目前主流的 GRUB 版本是 GRUB2，它的配置文件是 <code>/etc/default/grub</code>。一个小技巧，开机时按住 <span class="keys"><kbd class="key-shift">Shift</kbd></span> 键可以进入 GRUB 的启动菜单。</li>
 </ul>
-<h3 id="_5">系统启动的各种方式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_10">系统启动的各种方式<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>在使用个人电脑时我们基本不会见到其他的启动方式，而在服务器运维时你可能见到 PXE、USB、CD、iPXE、ISO 等启动方式，我们逐一介绍。</p>
 <ul>
 <li>PXE（Preboot eXecution Environment）：预启动执行环境，是一种<strong>远程启动技术</strong>，可以通过网络从远程服务器启动计算机。PXE 服务器通过 DHCP 协议为客户端分配 IP 地址，然后通过 TFTP 协议为客户端提供启动文件。PXE 服务器可以是独立的服务器，也可以是路由器、交换机等网络设备。</li>
 <li>iPXE：是 PXE 的改进版，支持更多的网络协议，如 HTTP、iSCSI 等。这些网络协议比 TFTP 更快也更可靠。</li>
 <li>ISO 启动方式与上面几种启动方式的层级不一样：上面几种启动方式都是在硬件层面，由 BIOS/UEFI 选择，而 ISO 是在进入引导程序如 GRUB 后选择。</li>
 </ul>
-<h3 id="_6">系统启动过程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_11">系统启动过程<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <h3 id="kernel-panic">遇到 Kernel Panic 怎么办？<a class="headerlink" href="#kernel-panic" title="Permanent link">&para;</a></h3>
 <h3 id="module">关于 Module<a class="headerlink" href="#module" title="Permanent link">&para;</a></h3>
+<h2 id="more-information">More Information<a class="headerlink" href="#more-information" title="Permanent link">&para;</a></h2>
+<p>我想学习更多深入的内容，应该去看些什么呢？</p>
+<ul>
+<li>《The Linux Programming Interface》Michael Kerrisk：详细讲解了 Linux 系统调用和 C 库的实现，是非常详细的关于</li>
+<li>Linux 系统编程和原理的书。</li>
+</ul>
 <h2 id="handbook">Handbook<a class="headerlink" href="#handbook" title="Permanent link">&para;</a></h2>
 <p>在 Linux 运维中，很多时候你需要一个地方查找资料，如各种 Modules、系统的各种 API。这里搜集了一些：</p>
-<h2 id="-lkddb-linux-kernel-driver-database-what-linux-drivers-are-for-me">- <a href="https://cateee.net/lkddb/">LKDDb: Linux Kernel Driver DataBase | what Linux drivers are for me?</a><a class="headerlink" href="#-lkddb-linux-kernel-driver-database-what-linux-drivers-are-for-me" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://cateee.net/lkddb/">LKDDb: Linux Kernel Driver DataBase | what Linux drivers are for me?</a>。搜集了各种驱动的信息，当你遇到硬件上的问题时常常可以在这里找到答案。</li>
+<li><a href="https://www.kernel.org/doc/man-pages/">The Linux man-pages project</a>。这里包含 Linux Kernel 和 C 库的各种文档。</li>
+<li><a href="https://www.kernel.org/doc/html/latest/">The Linux Kernel documentation</a></li>
+</ul>
 
 
 
