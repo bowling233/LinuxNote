@@ -669,55 +669,61 @@
 <li>网络层（特别是数据平面）：IP 协议。</li>
 </ul>
 <p>其他分层如数据链路层、传输层等由云服务提供商为我们处理，作为使用者的我们不需要关心。</p>
-<p>应用层协议众多，请根据你的需求学习不同的协议，我们会在后面的服务器部署与架设等章节中展开其中的一些。而 IP 协议是互联网的基础，我们需要对它有更深入的了解。</p>
+<p>应用层协议众多，应当按需学习相关的协议，我们会在后面的服务器部署与架设等章节中展开其中的一些。而 IP 协议是互联网的基础，我们需要对它有更深入的了解。</p>
 <h4 id="_4">网络层<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<p>该部分内容取自《计算机网络：自顶向下方法》第 4 章。在前面的章节有一些预备知识，请确保你了解以下术语的含义：</p>
+<!-- prettier-ignore-start -->
+<div class="admonition abstract">
+<p class="admonition-title">摘要</p>
+<p>该部分内容主要来自《计算机网络：自顶向下方法》第 4 章。在前面的章节有一些预备知识，请确保你了解以下术语的含义：</p>
 <ul>
 <li>端系统（end system）</li>
 <li>端口（port）</li>
 <li>分组（packet）</li>
-<li>网络层数据报（network-layer datagram）</li>
+<li>数据报（ datagram）</li>
 <li>链路层帧（link-layer frame）</li>
 </ul>
+</div>
+<!-- prettier-ignore-end -->
+
 <h5 id="_5">网络层都做些什么？<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
 <p>每台主机和路由器中都有一个网络层部分。网络层具有两大重要功能：</p>
 <ul>
-<li>转发（forwarding）：由数据平面实现，路由器将分组从一个输入链路移动到适当的输出链路。</li>
-<li>路由选择（routing）：由控制平面实现，路由器使用<strong>路由选择算法</strong>决定将分组在端系统之间流动的路径。</li>
+<li>转发（forwarding）：路由器将分组从一个输入链路移动到适当的输出链路。</li>
+<li>路由选择（routing）：路由器使用<strong>路由选择算法</strong>决定分组在端系统之间流动的路径。</li>
 </ul>
-<p>每台路由器具有一个转发表。在我们使用的模型中，转发表由一个远程控制器进行计算和分发，称为软件定义网络（Software Defined Network，SDN）。</p>
-<h5 id="_6">路由器是如何工作的？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<p>每台路由器具有一个转发表。在目前最广泛使用的网络结构中，转发表由一个远程控制器进行计算和分发，这称为软件定义网络（Software Defined Network，SDN）。</p>
+<h5 id="_6">路由器是如何工作的？（选读）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
 <p>一台路由器有四个组件：</p>
 <ul>
 <li>输入端口：接收分组、查询转发表。</li>
 <li>交换结构：连接输入端口和输出端口。</li>
 <li>输出端口：存储和传输分组。</li>
-<li>路由选择处理器：与远程控制器通信、接收转发表、在输入端口安装转发表项、执行网络管理功能。</li>
+<li>路由选择处理器：与远程控制器通信、接收转发表、在输入端口安装转发表项、执行网络管理功能等。</li>
 </ul>
 <p>前面的三个组件由硬件实现，而路由选择处理器由软件实现。</p>
 <p>两种转发模式：</p>
 <ul>
-<li>基于目的地转发</li>
-<li>通用转发：有更多因素影响转发决策。</li>
+<li>基于目的地转发：最为泛用的转发模式，只根据目的地决定转发。</li>
+<li>通用转发：用更多因素控制转发决策，比如：应用层协议、某些首部字段等。（不需要了解，知道有这么个东西就行）。</li>
 </ul>
 <p>输入端口处理：</p>
 <ul>
 <li>转发表从路由选择处理器通过独立总线复制到输入端口的线路卡。</li>
-<li>输入端口处理流程：线路端接-数据链路处理（协议，拆封）-查找、转发、排队-交换结构</li>
+<li>输入端口处理流程：线路端接-数据链路处理（协议，拆封）-查找、转发、排队-进入交换结构</li>
 <li>除了查找以外，输入端口还需要执行其他功能，如检查、重写分组中的某些内容，更新网络计数器等。</li>
 </ul>
 <!-- prettier-ignore-start -->
-<details class="question">
-<summary>转发表太大了怎么办？</summary>
+<div class="admonition question">
+<p class="admonition-title">转发表太大了怎么办？</p>
 <p>对于 32 位 IP 地址，如果路由表中为每个 IP 地址设置一个表项，则路由表有 40 多亿个项。事实上路由器使用<strong>最长前缀匹配</strong>规则，转发表中保存<strong>前缀匹配</strong>。</p>
 <ul>
 <li>最长前缀匹配指的是：如果路由表中有多个匹配项，那么选择最长的前缀匹配项。</li>
 <li>这要求硬件实现：对大型转发表的超过简单线性搜索的查找算法、对内存的高速访问。有兴趣可以查找相关资料。</li>
 </ul>
-</details>
+</div>
 <!-- prettier-ignore-end -->
 
-<p>交换结构有多种实现，不作具体介绍：</p>
+<p>交换结构有多种实现，简单了解一下：</p>
 <ul>
 <li>经内存交换：受内存访问速度的限制。在现代路由器中，将分组存进内存位置也常常由输入端口的线路卡完成，这更像是一个共享内存的多处理器。</li>
 <li>经总线交换：接收分组-打标签-上总线-匹配的输出端口接收-去除标签。所有端口都会收到分组，但只有匹配的端口会接收到分组。总线上一次只能有一个分组，速度受总线带宽限制。</li>
@@ -771,8 +777,8 @@
 <li>地址的剩余 <span class="arithmatex">\(32-x\)</span> 比特用于区分该组织内部的设备，其中所有设备具有相同的网络前缀。只有当组织内部的路由器转发分组时才考虑这些比特。这些较低比特可能用于另外的子网结构。</li>
 </ul>
 <!-- prettier-ignore-start -->
-<details class="example">
-<summary>CIDR 寻址的例子</summary>
+<div class="admonition example">
+<p class="admonition-title">CIDR 寻址的例子</p>
 <p>一个 ISP 拥有地址块 <code>200.23.16.0/20</code>，它向外界通告：向我发送以 <code>200.23.16.0/20</code> 开始的任何东西。这个 ISP 将 <code>200.23.16.0/23</code>、<code>200.23.18.0/23</code> 等几个组织连接到互联网。</p>
 <ul>
 <li>这样使用单个网络前缀通告多个网络的能力称为<strong>地址聚合</strong>（address aggregation）或<strong>路由聚合</strong>（routing aggregation）或<strong>路由摘要</strong>（route summarization）。</li>
@@ -781,7 +787,7 @@
 <ul>
 <li>上面这个例子说明：路由选择时将使用<strong>最长前缀匹配</strong>。</li>
 </ul>
-</details>
+</div>
 <!-- prettier-ignore-end -->
 
 <p>在 CIDR 之前，IP 地址的网络部分被限制为 8、16 或 24 比特，称为<strong>分类编制</strong>（classful addressing）方案。这些子网分别称为 A、B 和 C 类网络。分类编址方案的问题在于，它们将地址空间划分为固定大小的块，这些块可能过大或过小。</p>
@@ -822,13 +828,15 @@
 <li>Web 服务器接收到报文，但他不知道报文被修改。响应报文按 <code>139.76.29.7:5001</code> 到达 NAT 路由器。</li>
 <li>NAT 路由器按转换表重写响应报文的目的 IP 地址和端口号，并转发到专用网络。</li>
 </ul>
-<p>对 NAT 的批评如下：</p>
-<ul>
-<li>端口号是用于进程寻址的，而不是用于主机寻址的。对该问题的解决方案包括 NAT 穿越和通用即插即用（Universal Plug and Play，UPnP）。</li>
-</ul>
 </div>
 <!-- prettier-ignore-end -->
 
+<p>对 NAT 的批评如下：</p>
+<ul>
+<li>端口号是用于进程寻址的，而不是用于主机寻址的。对该问题的解决方案包括 NAT 穿越和通用即插即用（Universal Plug and Play，UPnP）。</li>
+<li>NAT 使网络层更改了传输层的协议，这违反了协议分层原则。</li>
+</ul>
+<p>尽管存在批评，但 NAT 已经成为了因特网的重要组成部分。</p>
 <p>IPv6 协议：扩大了地址空间，并强化了其他方面。</p>
 <ul>
 <li>报文首部为定长的 40 字节：使路由器更快处理报文。</li>
@@ -858,8 +866,15 @@
 <li>BIOS 使用磁盘起始处的一些扇区来存储启动程序，而 UEFI 使用磁盘上的一个特殊分区来存储启动程序。UEFI 具有更多的功能，支持更大的磁盘空间等，正在逐渐取代 BIOS。</li>
 <li>GRUB（GRand Unified Bootloader）是一个多重启动管理器，用于在多个操作系统共存时选择引导哪个操作系统。目前主流的 GRUB 版本是 GRUB2，它的配置文件是 <code>/etc/default/grub</code>。一个小技巧，开机时按住 <span class="keys"><kbd class="key-shift">Shift</kbd></span> 键可以进入 GRUB 的启动菜单。</li>
 </ul>
+<!-- prettier-ignore-start -->
+<details class="question">
+<summary>UEFI 启动太快了，根本来不及按键进入 GRUB 菜单！</summary>
+<p>可以修改 <code>/etc/default/grub</code> 文件，其中 <code>GRUB_TIMEOUT_STYLE</code> 的值很可能是 <code>hidden</code>。将其改为 <code>menu</code>，然后执行 <code>sudo update-grub</code> 命令，这样就可以在开机时进入 GRUB 菜单了。</p>
+</details>
+<!-- prettier-ignore-end -->
+
 <h3 id="_10">系统启动的各种方式<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>在使用个人电脑时我们基本不会见到其他的启动方式，而在服务器运维时你可能见到 PXE、USB、CD、iPXE、ISO 等启动方式，我们逐一介绍。</p>
+<p>在使用个人电脑时我们基本不会见到其他的启动方式，而在服务器运维时你可能见到 PXE、USB、CD、iPXE、ISO 等启动方式。</p>
 <ul>
 <li>PXE（Preboot eXecution Environment）：预启动执行环境，是一种<strong>远程启动技术</strong>，可以通过网络从远程服务器启动计算机。PXE 服务器通过 DHCP 协议为客户端分配 IP 地址，然后通过 TFTP 协议为客户端提供启动文件。PXE 服务器可以是独立的服务器，也可以是路由器、交换机等网络设备。</li>
 <li>iPXE：是 PXE 的改进版，支持更多的网络协议，如 HTTP、iSCSI 等。这些网络协议比 TFTP 更快也更可靠。</li>
@@ -871,8 +886,16 @@
 <h2 id="more-information">More Information<a class="headerlink" href="#more-information" title="Permanent link">&para;</a></h2>
 <p>我想学习更多深入的内容，应该去看些什么呢？</p>
 <ul>
-<li>《The Linux Programming Interface》Michael Kerrisk：详细讲解了 Linux 系统调用和 C 库的实现，是非常详细的关于</li>
-<li>Linux 系统编程和原理的书。</li>
+<li>计算机网络方面<ul>
+<li>入门推荐使用图解系列：《图解 HTTP》、《图解 TCP/IP》等书，将基础概念讲解得非常简洁易懂。</li>
+<li>可以将《计算机网络：自顶向下方法》作为参考书，这本书讲解得非常透彻，但是对于初学者来说可能有些难度。</li>
+</ul>
+</li>
+<li>关于 Linux 系统<ul>
+<li>鸟哥的 Linux 私房菜系列。但它基于 RedHat 系统，主要用于企业服务器。相信看到这里的你已经具备了前面章节的各种 Linux 技能，这时发行版不同对你来说已不是问题，你已经学会迁移知识到其他系统上去了。</li>
+<li>《The Linux Programming Interface》Michael Kerrisk：详细讲解了 Linux 系统调用和 C 库的实现，是非常详细的关于Linux 系统编程和原理的书。</li>
+</ul>
+</li>
 </ul>
 <h2 id="handbook">Handbook<a class="headerlink" href="#handbook" title="Permanent link">&para;</a></h2>
 <p>在 Linux 运维中，很多时候你需要一个地方查找资料，如各种 Modules、系统的各种 API。这里搜集了一些：</p>
