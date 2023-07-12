@@ -39,6 +39,12 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/neoteroi-mkdocs.css">
+    
+      <link rel="stylesheet" href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css">
+    
+      <link rel="stylesheet" href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -46,7 +52,18 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -113,9 +130,9 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
           
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+            <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
             </label>
           
@@ -353,6 +370,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wsl-cc" class="md-nav__link">
+    万事开头难：安装 WSL 和 C/C++ 环境
+  </a>
+  
+    <nav class="md-nav" aria-label="万事开头难：安装 WSL 和 C/C++ 环境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wsl_1" class="md-nav__link">
+    WSL 部分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -418,10 +455,75 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../10.server_and_clusters/">10.服务器与集群运维知识</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="10.服务器与集群运维知识" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          10.服务器与集群运维知识
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../10.basic_of_clusters/" class="md-nav__link">
-        服务器和集群运维基础
+      <a href="../../10.server_and_clusters/hardware/" class="md-nav__link">
+        硬件篇
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10.server_and_clusters/network/" class="md-nav__link">
+        网络篇
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -456,6 +558,26 @@
   <a href="#wsl" class="md-nav__link">
     什么是 WSL？为什么要用它？
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wsl-cc" class="md-nav__link">
+    万事开头难：安装 WSL 和 C/C++ 环境
+  </a>
+  
+    <nav class="md-nav" aria-label="万事开头难：安装 WSL 和 C/C++ 环境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wsl_1" class="md-nav__link">
+    WSL 部分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -504,6 +626,142 @@
 <li><a href="https://learn.microsoft.com/en-us/windows/wsl/install">Microsoft Docs: Install Linux on Windows with WSL</a></li>
 </ul>
 </div>
+<!-- prettier-ignore-end -->
+
+<h2 id="wsl-cc">万事开头难：安装 WSL 和 C/C++ 环境<a class="headerlink" href="#wsl-cc" title="Permanent link">&para;</a></h2>
+<p>安装和配置环境可能对大多数人来说都是很折磨的一段经历。面对复杂的命令行和奇奇怪怪的报错，因为没有相关知识而无从下手，寻找教程却往往无法解决自己的问题。这里也仅能提供一些参考，实际安装时还是可能出现各种各样的情况。</p>
+<p><strong>最后更新日期：2023 年 04 月 05 日</strong>，本教程可能因为时间关系而不再适用。</p>
+<h3 id="wsl_1">WSL 部分<a class="headerlink" href="#wsl_1" title="Permanent link">&para;</a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">参考资料</p>
+<ul>
+<li><a href="https://dowww.spencerwoo.com/1-preparations/1-1-installation.html">教程：在 Windows 上用 WSL 优雅开发</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/wsl/install">Microsoft Docs: Install Linux on Windows with WSL</a></li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+
+<p>什么是 WSL？WSL 的全称叫做：Windows Subsystem for Linux，即「适用于 Linux 的 Windows 子系统」。把它看作一种虚拟机就好。</p>
+<h4 id="0-linux">0. 关于 Linux 版本的选择<a class="headerlink" href="#0-linux" title="Permanent link">&para;</a></h4>
+<p>初学者无脑选择 Ubuntu 即可。初学时千万不要接触 Debian 和 ArchLinux，会变得不幸🤕。</p>
+<h4 id="1-bios">1. 【跳过：如果后续步骤出现错误，再回来检查该步】在 BIOS 中开启内核虚拟化。一般电脑都是默认开启的。<a class="headerlink" href="#1-bios" title="Permanent link">&para;</a></h4>
+<p>不同电脑的开启方法不同。请根据你正在使用的电脑品牌，搜索如何进入 BIOS 并开启内核虚拟化。</p>
+<h4 id="2-wsl2">2. 开启支持 WSL2 的系统组件<a class="headerlink" href="#2-wsl2" title="Permanent link">&para;</a></h4>
+<p>使用管理员身份打开 PowerShell，输入以下命令。</p>
+<div class="highlight"><pre><span></span><code><span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">Microsoft-Windows-Subsystem-Linux</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
+<span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">VirtualMachinePlatform</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
+</code></pre></div>
+<p>显示操作成功完成后，重启电脑。</p>
+<h4 id="3-wsl">3.在【微软应用商店】中下载并安装 WSL<a class="headerlink" href="#3-wsl" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://apps.microsoft.com/store/detail/ubuntu-on-windows/9NBLGGH4MSV6">Ubuntu on Windows</a>。也可以选择带 LTS 的版本，更加稳定，但可能功能落后。</li>
+<li><a href="https://www.microsoft.com/store/productId/9P9TQF7MRM4R">Windows Subsystem for Linux</a>。该软件为 WSL 提供图形界面支持（否则你智能使用命令行，或借助远程桌面连接到 WSL 的桌面），并且会把 Linux 中的程序显示在你的开始菜单中。</li>
+</ul>
+<h4 id="4-wsl-wsl2">4. 【跳过：如果后续步骤出现错误，再回来检查该步】检查 WSL 版本是否为 WSL2。<a class="headerlink" href="#4-wsl-wsl2" title="Permanent link">&para;</a></h4>
+<p>在 PowerShell 中输入如下命令。</p>
+<div class="highlight"><pre><span></span><code><span class="n">wsl</span> <span class="p">-</span><span class="n">-list</span> <span class="p">-</span><span class="n">-verbose</span>
+</code></pre></div>
+<p>如果与右图一致， <code>VERSION</code> 列是 <code>2</code>，则不用进行以下操作。否则执行以下命令，其中 <code>&lt;distro&gt;</code> 是你的 WSL 版本名称（出现在刚刚的 <code>NAME</code> 列）：</p>
+<div class="highlight"><pre><span></span><code><span class="n">wsl</span> <span class="p">-</span><span class="n">-set-version</span> <span class="p">&lt;</span><span class="n">Distro</span><span class="p">&gt;</span> <span class="n">2</span>
+</code></pre></div>
+<p>再次检查版本是否为 WSL2。重启。</p>
+<h4 id="5-wsl">5. 启动 WSL。<a class="headerlink" href="#5-wsl" title="Permanent link">&para;</a></h4>
+<!-- prettier-ignore-start -->
+<details class="failure">
+<summary>你大概率会遇到一个报错</summary>
+<p>出现报错，末尾附上了一个含有 <code>aka.ms</code> 的链接。这是因为需要更新 WSL 内核。按住 <span class="keys"><kbd class="key-control">Ctrl</kbd></span> 同时点击该链接，跳转到微软的文档，点击下载下载 Linux 内核更新包，安装，再启动 WSL 即可。</p>
+</details>
+<!-- prettier-ignore-end -->
+
+<h4 id="6">6. 设置用户名和密码。<a class="headerlink" href="#6" title="Permanent link">&para;</a></h4>
+<p>以后当你执行安装软件等操作时，都需要输入密码。</p>
+<h4 id="7">7. 换源。<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
+<p>默认情况下 Linux 系统从国外的官方源获取软件包，但是在国内速度很慢。最好换成学校的镜像站，速度起飞，再也无需漫长的等待。</p>
+<ul>
+<li><a href="http://mirrors.zju.edu.cn/">浙江大学开源镜像站</a></li>
+</ul>
+<p>执行以下命令即可：</p>
+<div class="highlight"><pre><span></span><code>sudo sed -i <span class="s1">&#39;s@//.*archive.ubuntu.com@//mirrors.zju.edu.cn@g&#39;</span> /etc/apt/sources.list
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>手动换源</summary>
+<ol>
+<li>
+<p>确认你的 Linux 版本</p>
+<details class="note">
+<summary>如何确认 Linux 版本</summary>
+</details>
+<ul>
+<li>使用 <code>cat /etc/issue</code>。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Ubuntu 22.04.2 LTS \n \l
+</code></pre></div>
+<ul>
+<li>使用 <code>lsb_release -a</code>。如果你安装的是 Debian 系统，则默认没有安装该命令。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.2 LTS
+Release:        22.04
+Codename:       jammy
+</code></pre></div>
+</li>
+<li>
+<p>进入镜像站，找到你对应的系统和版本。</p>
+</li>
+<li>
+<p>用镜像站提供的文本覆盖 <code>/etc/apt/sources.list</code>。</p>
+</li>
+</ol>
+</details>
+<!-- prettier-ignore-end -->
+
+<h4 id="8">8. 更新源和软件。<a class="headerlink" href="#8" title="Permanent link">&para;</a></h4>
+<p>这是初次安装 Linux 系统时一定要做的一件事，先把系统的各种软件更新到最新。</p>
+<div class="highlight"><pre><span></span><code>sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade
+</code></pre></div>
+<h4 id="9-cc">9. 安装 C/C++ 编译工具包<a class="headerlink" href="#9-cc" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>sudo apt install build-essential
+sudo apt install gcc g++ gdb
+</code></pre></div>
+<h4 id="wsl_2">恭喜你，完成了 WSL 的安装<a class="headerlink" href="#wsl_2" title="Permanent link">&para;</a></h4>
+<p>至此，基本的 Linux 编程环境已经安装完成。下一节我们讲述<strong>命令行</strong>的基本操作。</p>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>杂谈：命令行到底是什么？</summary>
+<p>不少同学初学时有这样的疑惑：<strong>为什么我们要使用这个黑色的窗口，往里面输入各种奇奇怪怪的命令？</strong>这里简单聊一聊这个问题。</p>
+<ul>
+<li>在计算机的早期并没有图形界面，我们只能通过一个一个的命令来控制计算机。<ul>
+<li>现在你是计算机专业的学生，会经常接触到更为底层的东西，比如与操作系统内核交互，它们并没有提供图形界面，所以要熟悉使用命令行。 </li>
+<li><strong>【重要】你以后在工作中会经常使用 Linux 系统，目前大部分网络服务器都使用 Linux 系统。特别是你将来要从事服务器运维工作时，Linux 会成为你的入职门槛。</strong></li>
+</ul>
+</li>
+<li>命令行和图形界面、快捷键一样，都是<strong>操作系统和应用的一种方式</strong>。<ul>
+<li>与图形界面（GUI）主要使用鼠标、图像等直观视觉交互方式不同，命令行通常需要用户<strong>记忆操作的命令</strong>。</li>
+<li>对于图形界面，用户点击某个图标就能启动某个程序；对于命令行，用户输入某个程序的名字（可以看做一个命令）就能<strong>启动某个程序</strong>。</li>
+</ul>
+</li>
+</ul>
+<p>在 Linux 系统中使用命令行有以下优势：</p>
+<ul>
+<li>能够使用各种方便的工具</li>
+</ul>
+<p>举一个例子：按指定格式批量重命名文件。按我们日常使用 Windows 的习惯，在量少的时候你会一个个手动更改，量大的时候你会去网上找小工具。而在 Linux 系统的命令行界面，你只需要一行命令：</p>
+<div class="highlight"><pre><span></span><code>rename mod adb *
+</code></pre></div>
+<p>上面这行命令的作用是把当前目录下所有文件名中含有 <code>mod</code> 字符串的替换成 <code>adb</code>。是不是很方便呢？</p>
+<ul>
+<li>运行速度快</li>
+</ul>
+<p>命令行界面要较图形用户界面节约计算机系统的资源。在熟记命令的前提下，使用命令行界面往往要较使用图形用户界面的操作速度要快。</p>
+<ul>
+<li>自动化</li>
+</ul>
+<p>你可以编写脚本实现各种繁杂的、机械的操作。</p>
+<p>此外，《Linux 就该这么学》 的<strong>前言</strong>部分简要介绍了 Linux 系统的历史、开源精神和相关概念、为什么要学习 Linux 的问题，有兴趣可以看一看。</p>
+</details>
 <!-- prettier-ignore-end -->
 
 
@@ -583,7 +841,13 @@
     
       <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
     
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

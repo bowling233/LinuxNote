@@ -2,47 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://linux.bowling233.top/</loc>
-         <lastmod>2023-07-06</lastmod>
+         <lastmod>2023-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://linux.bowling233.top/0.before/</loc>
-         <lastmod>2023-07-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://linux.bowling233.top/10.basic_of_clusters/</loc>
-         <lastmod>2023-07-06</lastmod>
+         <lastmod>2023-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://linux.bowling233.top/11.tools_for_clusters/</loc>
-         <lastmod>2023-07-06</lastmod>
+         <lastmod>2023-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://linux.bowling233.top/2.cli/</loc>
-         <lastmod>2023-07-06</lastmod>
+         <lastmod>2023-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://linux.bowling233.top/1.install/</loc>
-         <lastmod>2023-07-06</lastmod>
+         <lastmod>2023-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://linux.bowling233.top/1.install/1.install.cloud/</loc>
-         <lastmod>2023-07-06</lastmod>
+         <lastmod>2023-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://linux.bowling233.top/1.install/1.install.other/</loc>
-         <lastmod>2023-07-06</lastmod>
+         <lastmod>2023-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://linux.bowling233.top/1.install/1.install.wsl/</loc>
-         <lastmod>2023-07-06</lastmod>
+         <lastmod>2023-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://linux.bowling233.top/10.server_and_clusters/</loc>
+         <lastmod>2023-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://linux.bowling233.top/10.server_and_clusters/hardware/</loc>
+         <lastmod>2023-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://linux.bowling233.top/10.server_and_clusters/network/</loc>
+         <lastmod>2023-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
